@@ -5,14 +5,12 @@ const menu = {
   Desserts: ["Tiramisu", "Cheesecake"],
 };
 
-// -------------------------------------------------------------------
 // QUESTION: What should you do first? How can you display menu items by category?
-// -------------------------------------------------------------------
 
 // Function to display menu items by category
 function displayMenuItems(menu) {
   // QUESTION: What do you need to get from the HTML to display the menu? Find a way to reference it.
-  // ANSWER: We reference the menu container by its ID "menu".
+  // ANSWER: Reference the menu container by its ID "menu".
   const menuContainer = document.getElementById("menu");
   menuContainer.innerHTML = ""; // Clear any previous content
 
@@ -38,14 +36,14 @@ function displayMenuItems(menu) {
       // QUESTION: How can you set the text content of the list item element to the item name?
       li.textContent = item;
 
-      // For this example, we'll assign a default price based on category.
+      // For this example, we'll assign a default price based on category (in Rands):
       let price = 0;
       if (category === "Starters") {
-        price = 5.99;
+        price = 59.99;
       } else if (category === "MainCourses") {
-        price = 12.99;
+        price = 129.99;
       } else if (category === "Desserts") {
-        price = 6.99;
+        price = 69.99;
       }
 
       // QUESTION: Attach a click event listener to the list item to add it to the order.
@@ -63,9 +61,7 @@ function displayMenuItems(menu) {
   }
 }
 
-// -------------------------------------------------------------------
 // QUESTION: How can you update the order when an item is added? What elements in the HTML do you need to reference?
-// -------------------------------------------------------------------
 
 // Global addToOrder function is defined as a placeholder.
 // It will be redefined inside initMenuSystem so that it has access to order state.
@@ -73,9 +69,7 @@ function addToOrder(itemName) {
   // Placeholder - this function will be overridden in initMenuSystem.
 }
 
-// -------------------------------------------------------------------
 // QUESTION: What's the first step to initialize the menu system and display the menu?
-// -------------------------------------------------------------------
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
@@ -94,7 +88,8 @@ function initMenuSystem(menu) {
     // QUESTION: Create a list item for the order here.
     const li = document.createElement("li");
     // QUESTION: How can you set the text content of the list item to the item name?
-    li.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+    // Note: Pricing is in Rands (R) here.
+    li.textContent = `${itemName} - R${itemPrice.toFixed(2)}`;
     // QUESTION: How can you append the list item to the order items list?
     orderItemsList.appendChild(li);
 
@@ -108,9 +103,7 @@ function initMenuSystem(menu) {
   displayMenuItems(menu);
 }
 
-// -------------------------------------------------------------------
 // QUESTION: How can you start the menu system? What function should you call here?
-// -------------------------------------------------------------------
 
 // Call the init function to start the menu system
 initMenuSystem(menu);
